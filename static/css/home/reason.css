@@ -1,0 +1,25 @@
+/* Why Use Section */
+.why-use {
+    padding: 4rem 2rem;
+    background-color: var(--secondary-blue);
+  }
+  
+  .benefits__list {
+    max-width: var(--container-md);
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  .benefits__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+  }
+  
+  .benefits__icon {
+    font-size: 1.5rem;
+  }
+  

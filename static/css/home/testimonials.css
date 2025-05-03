@@ -1,0 +1,19 @@
+/* Testimonial Section */
+.testimonial {
+    padding: 4rem 2rem;
+    background-color: var(--secondary-green);
+    text-align: center;
+}
+
+.testimonial__quote {
+    max-width: var(--container-md);
+    margin: 0 auto;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+.testimonial__author {
+    margin-top: 1rem;
+    font-weight: 600;
+}

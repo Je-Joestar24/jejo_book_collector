@@ -1,0 +1,48 @@
+/* How It Works Section */
+.how-it-works {
+    padding: 4rem 2rem;
+    background-color: var(--primary-light);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 3rem;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: var(--container-lg);
+    margin: 0 auto;
+}
+
+.step {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px var(--shadow-light);
+    transition: transform 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.step__icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.step h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.step p {
+    color: var(--text-dark);
+    opacity: 0.8;
+}

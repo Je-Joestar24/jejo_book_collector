@@ -1,0 +1,36 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero__title {
+        font-size: 2.5rem;
+    }
+
+    .hero__tagline {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits__item {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: 2rem;
+    }
+
+    .hero__tagline {
+        font-size: 1rem;
+    }
+
+    .hero__cta {
+        padding: 0.8rem 1.5rem;
+    }
+}
