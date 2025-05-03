@@ -1,0 +1,292 @@
+/* About Page Styles */
+.about-container {
+    max-width: var(--container-lg);
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Section Styles */
+.section-title {
+    color: var(--text-dark);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Section 1: Intro */
+.about-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 6rem;
+    align-items: center;
+}
+
+.about-intro__content {
+    opacity: 0;
+    animation: fadeInLeft 0.8s ease forwards;
+}
+
+.about-intro__description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+.feature-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background: var(--primary-light);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateX(10px);
+    background: var(--primary-blue);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+}
+
+/* Bookshelf Animation */
+.about-intro__image {
+    position: relative;
+    height: 400px;
+    opacity: 0;
+    animation: fadeInRight 0.8s ease 0.3s forwards;
+}
+
+.bookshelf-animation {
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-green), var(--primary-blue));
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bookshelf-animation::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+    animation: shine 3s infinite;
+}
+
+/* Section 2: How It Works */
+.how-it-works {
+    background: var(--primary-light);
+    padding: 4rem 2rem;
+    margin: -2rem;
+    margin-bottom: 6rem;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.4s forwards;
+}
+
+.step-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px var(--shadow-light);
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.step-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+/* Section 3: Why Use */
+.why-use {
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+}
+
+.testimonial {
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--text-dark);
+    margin: 3rem 0;
+    position: relative;
+}
+
+.testimonial::before,
+.testimonial::after {
+    content: '"';
+    color: var(--primary-green);
+    font-size: 4rem;
+    position: absolute;
+    opacity: 0.3;
+}
+
+.testimonial::before {
+    left: -2rem;
+    top: -1rem;
+}
+
+.testimonial::after {
+    right: -2rem;
+    bottom: -2rem;
+}
+
+.benefits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.benefit-item {
+    padding: 2rem;
+    background: var(--primary-light);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: scale(1.05);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--primary-green);
+    color: white;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background: var(--secondary-green);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes shine {
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .about-intro {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-intro__image {
+        height: 300px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .testimonial {
+        font-size: 1.5rem;
+    }
+
+    .testimonial::before,
+    .testimonial::after {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-container {
+        padding: 1rem;
+    }
+
+    .how-it-works {
+        padding: 2rem 1rem;
+        margin: -1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .about-intro__description {
+        font-size: 1rem;
+    }
+
+    .feature-item {
+        padding: 0.6rem;
+    }
+
+    .testimonial {
+        font-size: 1.2rem;
+        margin: 2rem 0;
+    }
+
+    .testimonial::before,
+    .testimonial::after {
+        font-size: 2rem;
+    }
+}

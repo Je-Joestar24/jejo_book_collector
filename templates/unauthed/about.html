@@ -1,0 +1,19 @@
+{% extends 'base/unauthed.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block header_display %}
+
+{% include 'base/header.html' with authed=False active='about' %}
+
+{% endblock %}
+
+{% block content %}
+<main class="about-container" role="main">
+
+    {% include 'unauthed/about/what.html' %}
+    {% include 'unauthed/about/how.html' %}
+    {% include 'unauthed/about/why.html' %}
+
+</main>
+{% endblock %}

@@ -1,6 +1,7 @@
 @import './home/index.css';
 @import './footer/index.css';
 @import './header/index.css';
+@import './about/index.css';
 
 :root {
   /* Primary Colors */

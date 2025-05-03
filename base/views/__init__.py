@@ -1,2 +1,2 @@
-from .home import *
+from .unauthed import *
 from .users import *
