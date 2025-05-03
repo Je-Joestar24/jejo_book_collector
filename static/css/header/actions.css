@@ -1,0 +1,36 @@
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header__btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    background: var(--primary-blue);
+    color: var(--text-dark);
+    box-shadow: 0 2px 8px var(--shadow-light);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    margin-left: 0.5rem;
+}
+
+.header__btn--login:hover,
+.header__btn--login:focus {
+    background: var(--accent-pastel);
+    color: var(--text-dark);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.header__btn--signup {
+    background: var(--accent-pastel);
+    color: var(--text-dark);
+}
+
+.header__btn--signup:hover,
+.header__btn--signup:focus {
+    background: var(--primary-blue);
+    color: var(--text-dark);
+    transform: translateY(-2px) scale(1.05);
+}

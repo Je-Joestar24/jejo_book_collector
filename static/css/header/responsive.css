@@ -1,0 +1,18 @@
+/* Responsive */
+@media (max-width: 900px) {
+    .header__links {
+        display: none;
+    }
+
+    .header__hamburger {
+        display: flex;
+    }
+
+    .header__mobile-menu[hidden] {
+        display: none;
+    }
+
+    .header__mobile-menu:not([hidden]) {
+        display: flex;
+    }
+}
