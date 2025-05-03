@@ -2,6 +2,12 @@
 
 {% block title %}Home{% endblock %}
 
+{% block header_display %}
+
+{% include 'base/header.html' with authed=False active='home' %}
+
+{% endblock %}
+
 {% block content %}
     
     {% include 'unauthed/home/hero.html' %}
