@@ -1,0 +1,18 @@
+{% extends 'base/main.html' %}
+
+{% block header_display %}
+
+{% include 'base/header.html' with access='unauthed' only %}
+
+{% endblock %}
+
+{% block title %}{% endblock %}
+
+{% block content %} {% endblock %}
+
+
+{% block footer_display %}
+
+{% include 'base/footer.html' with authed=False only %}
+
+{% endblock %}
