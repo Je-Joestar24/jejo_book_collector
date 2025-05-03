@@ -11,14 +11,17 @@
       <ul>
         <li><a href="/" aria-label="Home">Home</a></li>
         <li><a href="/about" aria-label="About">About</a></li>
+        {% if authed %}
+        <li><a href="/search" aria-label="search">Search</a></li>
         <li><a href="/collection" aria-label="Collection">Collection</a></li>
+        {% endif %}
         <li><a href="/contact" aria-label="Contact">Contact</a></li>
       </ul>
     </nav>
     <!-- Contact & Social -->
     <div class="footer__section footer__section--contact">
       <div class="footer__socials" aria-label="Social Links">
-        <a href="mailto:support@email.com" class="footer__icon-link" aria-label="Email">
+        <a href="mailto:jpar1252003@gmail.com" class="footer__icon-link" aria-label="Email">
           <!-- Envelope SVG -->
           <svg width="24" height="24" fill="none" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
             <rect width="24" height="24" rx="6" fill="#FFD9B7" opacity="0.2"/>
@@ -43,11 +46,11 @@
           </svg>
         </a>
       </div>
-      <a href="mailto:support@email.com" aria-label="Email Support" class="footer__contact-link">
-        support@email.com
+      <a href="mailto:jpar1252003@gmail.com" aria-label="Email Support" class="footer__contact-link">
+        jpar1252003@gmail.com
       </a>
       <span class="footer__copyright">
-        &copy; 2025 BookFinder
+        &copy; 2025 JejoBookCollector
       </span>
     </div>
   </div>
