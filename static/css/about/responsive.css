@@ -1,0 +1,57 @@
+/* Responsive Design */
+@media (max-width: 968px) {
+    .about-intro {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-intro__image {
+        height: 300px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .testimonial {
+        font-size: 1.5rem;
+    }
+
+    .testimonial::before,
+    .testimonial::after {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-container {
+        padding: 1rem;
+    }
+
+    .how-it-works {
+        padding: 2rem 1rem;
+        margin: -1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .about-intro__description {
+        font-size: 1rem;
+    }
+
+    .feature-item {
+        padding: 0.6rem;
+    }
+
+    .testimonial {
+        font-size: 1.2rem;
+        margin: 2rem 0;
+    }
+
+    .testimonial::before,
+    .testimonial::after {
+        font-size: 2rem;
+    }
+}

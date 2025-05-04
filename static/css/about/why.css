@@ -1,0 +1,66 @@
+/* Section 3: Why Use */
+.why-use {
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+}
+
+.testimonial {
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--text-dark);
+    margin: 3rem 0;
+    position: relative;
+}
+
+.testimonial::before,
+.testimonial::after {
+    content: '"';
+    color: var(--primary-green);
+    font-size: 4rem;
+    position: absolute;
+    opacity: 0.3;
+}
+
+.testimonial::before {
+    left: -2rem;
+    top: -1rem;
+}
+
+.testimonial::after {
+    right: -2rem;
+    bottom: -2rem;
+}
+
+.benefits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.benefit-item {
+    padding: 2rem;
+    background: var(--primary-light);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: scale(1.05);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--primary-green);
+    color: white;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background: var(--secondary-green);
+}
