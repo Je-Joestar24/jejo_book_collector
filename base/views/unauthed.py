@@ -7,3 +7,6 @@ def home(request):
 
 def about(request):
     return render(request, 'unauthed/about.html')
+    
+def login_view(request):
+    return render(request, 'unauthed/login.html')

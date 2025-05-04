@@ -2,6 +2,7 @@
 @import './footer/index.css';
 @import './header/index.css';
 @import './about/index.css';
+@import './login/index.css';
 
 :root {
   /* Primary Colors */
