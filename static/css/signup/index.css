@@ -1,8 +1,10 @@
 @import 'animations.css';
 @import 'branding.css';
 @import 'buttons.css';
+@import 'checkbox.css';
 @import 'container.css';
-@import 'formlinks.css';
-@import 'animations.css';
+@import 'elements.css';
+@import 'links.css';
+@import 'password.css';
 @import 'responsive.css';
 @import 'section.css';

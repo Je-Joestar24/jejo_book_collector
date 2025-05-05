@@ -10,3 +10,6 @@ def about(request):
     
 def login_view(request):
     return render(request, 'unauthed/login.html')
+    
+def signup_view(request):
+    return render(request, 'unauthed/signup.html')

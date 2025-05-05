@@ -1,0 +1,20 @@
+/* Form Links */
+.form-links {
+    margin-top: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.forgot-link,
+.signup-link {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-link:hover,
+.signup-link:hover {
+    color: var(--primary-green);
+}

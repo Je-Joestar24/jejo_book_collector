@@ -1,0 +1,15 @@
+/* Form Links */
+.form-links {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.login-link {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: var(--primary-blue);
+}

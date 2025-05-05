@@ -21,6 +21,7 @@
             <h2 id="signup-title" class="form-title">Create Your Account</h2>
             
             <form class="signup-form" method="POST" role="form">
+                {% csrf_token %}
                 
                 <!-- Full Name Field -->
                 <div class="form-group">
