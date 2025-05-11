@@ -13,3 +13,12 @@
 .login-link:hover {
     color: var(--primary-blue);
 }
+
+.auth-home{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-size: 1.2rem;
+    z-index: 50;
+    color: var(--primary-light);
+}

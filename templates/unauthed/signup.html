@@ -5,6 +5,7 @@
 {% block content %}
 <main class="signup-container" role="main">
     <!-- Branding Section -->
+    <a href="{% url 'home' %}" class="auth-home">HOME</a>
     <section class="signup-branding" role="region" aria-label="Application branding">
         <div class="branding-content">
             <div class="brand-icon" role="img" aria-label="Book collector icon">
@@ -19,9 +20,9 @@
     <section class="signup-form-section" role="region" aria-labelledby="signup-title">
         <div class="form-container">
             <h2 id="signup-title" class="form-title">Create Your Account</h2>
-            
+
             <form class="signup-form" method="POST" role="form">
-                
+
                 <!-- Full Name Field -->
                 <div class="form-group">
                     <label for="fullname" class="form-label">Full Name</label>
@@ -37,8 +38,8 @@
                     <label for="email" class="form-label">Email Address</label>
                     <div class="input-wrapper">
                         <span class="input-icon">📧</span>
-                        <input type="email" id="email" name="email" class="form-input" required
-                            aria-required="true" placeholder="Enter your email address">
+                        <input type="email" id="email" name="email" class="form-input" required aria-required="true"
+                            placeholder="Enter your email address">
                     </div>
                 </div>
 
@@ -96,4 +97,3 @@
     </section>
 </main>
 {% endblock %}
-

@@ -49,4 +49,9 @@
     .checkbox-label {
         font-size: 0.8rem;
     }
+
+    .auth-home{
+        top: 20px;
+        color: var(--primary-blue);
+    }
 }
