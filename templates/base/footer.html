@@ -9,10 +9,11 @@
     <!-- Quick Links -->
     <nav class="footer__section footer__section--links" aria-label="Footer Quick Links">
       <ul>
-        <li><a href="/" aria-label="Home">Home</a></li>
-        <li><a href="/about" aria-label="About">About</a></li>
-        {% if authed %}
-        <li><a href="/search" aria-label="search">Search</a></li>
+        {% if not authed %}
+        <li><a href="{% url 'home_view' %}" aria-label="Home">Home</a></li>
+        <li><a href="{% url 'about_view' %}" aria-label="About">About</a></li>
+        {% else %}
+        <li><a  href="{% url 'search_book_view' %}" aria-label="search">Search</a></li>
         <li><a href="/collection" aria-label="Collection">Collection</a></li>
         {% endif %}
         <li><a href="/contact" aria-label="Contact">Contact</a></li>

@@ -7,14 +7,14 @@
     <ul class="header__links" role="menubar" aria-label="Primary">
       {% if not authed %}
       <li role="none">
-        <a role="menuitem" class="{% if active == 'home' %} active {% endif %}" href="/" aria-label="Home">Home</a>
+        <a role="menuitem" class="{% if active == 'home' %} active {% endif %}" href="{% url 'home_view' %}" aria-label="Home">Home</a>
       </li>
       <li role="none">
-        <a role="menuitem" class="{% if active == 'about' %} active {% endif %}" href="/about" aria-label="About">About</a>
+        <a role="menuitem" class="{% if active == 'about' %} active {% endif %}" href="{% url 'about_view' %}" aria-label="About">About</a>
       </li>
       {% else %}
       <li role="none">
-        <a role="menuitem" class="{% if active == 'search' %} active {% endif %}" href="/search" aria-label="Search Books">Search Books</a>
+        <a role="menuitem" class="{% if active == 'search_book' %} active {% endif %}" href="/search" aria-label="Search Books">Search Books</a>
       </li>
       <li role="none">
         <a role="menuitem" class="{% if active == 'collection' %} active {% endif %}" href="/collection" aria-label="Collection">Collection</a>
