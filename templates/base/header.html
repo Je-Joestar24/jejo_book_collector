@@ -14,7 +14,7 @@
       </li>
       {% else %}
       <li role="none">
-        <a role="menuitem" class="{% if active == 'search_book' %} active {% endif %}" href="/search" aria-label="Search Books">Search Books</a>
+        <a role="menuitem" class="{% if active == 'book_search' %} active {% endif %}" href="{% url 'search_book_view' %}" aria-label="Search Books">Search Books</a>
       </li>
       <li role="none">
         <a role="menuitem" class="{% if active == 'collection' %} active {% endif %}" href="/collection" aria-label="Collection">Collection</a>
