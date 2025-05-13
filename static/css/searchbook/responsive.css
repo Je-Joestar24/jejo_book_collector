@@ -1,0 +1,32 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+    .control-bar {
+        flex-direction: column;
+    }
+
+    .search-input-container {
+        width: 100%;
+    }
+
+    .filter-container {
+        justify-content: center;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .book-card {
+        max-width: 100%;
+    }
+
+    .card-buttons {
+        flex-direction: column;
+    }
+}

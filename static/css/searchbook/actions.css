@@ -1,0 +1,44 @@
+/* Card Buttons Container */
+.card-buttons {
+    margin-top: auto;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.save-btn,
+.view-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.save-btn {
+    background-color: var(--primary-blue);
+    color: var(--text-dark);
+}
+
+.view-btn {
+    background-color: var(--secondary-green);
+    color: var(--text-dark);
+}
+
+.save-btn:hover,
+.view-btn:hover {
+    transform: translateY(-2px);
+}
+
+.save-btn:hover {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+}
+
+.view-btn:hover {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+}

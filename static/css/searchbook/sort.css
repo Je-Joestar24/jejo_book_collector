@@ -1,0 +1,20 @@
+/* Sort Dropdown */
+.sort-container {
+    position: relative;
+}
+
+.sort-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-blue);
+    color: var(--text-dark);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.sort-btn:hover {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+}
