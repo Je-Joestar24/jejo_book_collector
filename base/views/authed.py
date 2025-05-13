@@ -5,4 +5,5 @@ from django.shortcuts import render
 def search_book_view(request):
     return render(request, 'authed/searchbook.html')
 
-    
+def collection_view(request):
+    return render(request, 'authed/collection.html')

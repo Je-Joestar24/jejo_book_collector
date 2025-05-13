@@ -17,7 +17,7 @@
         <a role="menuitem" class="{% if active == 'book_search' %} active {% endif %}" href="{% url 'search_book_view' %}" aria-label="Search Books">Search Books</a>
       </li>
       <li role="none">
-        <a role="menuitem" class="{% if active == 'collection' %} active {% endif %}" href="/collection" aria-label="Collection">Collection</a>
+        <a role="menuitem" class="{% if active == 'collection' %} active {% endif %}" href="{% url 'collection_view' %}" aria-label="Collection">Collection</a>
       </li>
       {% endif %}
     </ul>
