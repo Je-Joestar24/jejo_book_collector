@@ -5,6 +5,7 @@
 @import './login/index.css';
 @import './signup/index.css';
 @import './searchbook/index.css';
+@import './collection/index.css';
 
 :root {
   /* Primary Colors */

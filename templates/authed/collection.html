@@ -1,13 +1,84 @@
 {% extends 'base/authed.html' %}
 
-{% block title %}Collection{% endblock %}
+{% block title %}My Collection{% endblock %}
 
 {% block header_display %}
-
 {% include 'base/header.html' with authed=True active='collection' %}
-
 {% endblock %}
 
 {% block content %}
+<main class="collection-container" role="main">
+    <!-- Page Title Section -->
+    <section class="page-title">
+        <h1>My Book Collection</h1>
+        <p>View and manage your saved books.</p>
+    </section>
 
+    <!-- Control Bar Section -->
+    <section class="control-bar" role="search" aria-label="Collection search controls">
+        <form class="search-input-container">
+            <input type="search" 
+                   class="search-input" 
+                   placeholder="Search your collection..." 
+                   aria-label="Search collection"
+                   role="searchbox">
+            <button type="submit" class="start-search" aria-label="Start search">Search</button>
+        </form>
+        
+        <div class="sort-container">
+            <button class="sort-btn" aria-label="Sort collection">
+                🔤 Sort Collection
+            </button>
+        </div>
+    </section>
+
+    <!-- Books Collection List -->
+    <section class="books-list" role="list" aria-label="Book collection">
+        <!-- Sample Book Item -->
+        <article class="book-item" role="listitem">
+            <input type="checkbox" 
+                   class="book-checkbox" 
+                   aria-label="Select book for bulk action">
+            
+            <div class="book-info">
+                <h2 class="book-title">The Great Adventure</h2>
+                <p class="book-author">by John Smith</p>
+            </div>
+            
+            <span class="book-category">Fiction</span>
+            
+            <div class="action-buttons">
+                <button class="view-btn" aria-label="View book details">
+                    👁️ View
+                </button>
+                <button class="remove-btn" aria-label="Remove book from collection">
+                    ❌ Remove
+                </button>
+            </div>
+        </article>
+
+        <!-- Another Sample Book Item -->
+        <article class="book-item" role="listitem">
+            <input type="checkbox" 
+                   class="book-checkbox" 
+                   aria-label="Select book for bulk action">
+            
+            <div class="book-info">
+                <h2 class="book-title">The Art of Programming</h2>
+                <p class="book-author">by Jane Doe</p>
+            </div>
+            
+            <span class="book-category">Education</span>
+            
+            <div class="action-buttons">
+                <button class="view-btn" aria-label="View book details">
+                    👁️ View
+                </button>
+                <button class="remove-btn" aria-label="Remove book from collection">
+                    ❌ Remove
+                </button>
+            </div>
+        </article>
+    </section>
+</main>
 {% endblock %}
