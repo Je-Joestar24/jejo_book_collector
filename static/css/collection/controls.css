@@ -1,0 +1,59 @@
+/* Control Bar Styles */
+.control-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: var(--primary-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+.search-input-container {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--primary-blue);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px var(--primary-blue);
+}
+
+.search-input::placeholder {
+    color: var(--text-dark);
+    opacity: 0.7;
+}
+
+.sort-container {
+    position: relative;
+}
+
+.sort-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-blue);
+    color: var(--text-dark);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.sort-btn:hover {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    transform: translateY(-2px);
+}

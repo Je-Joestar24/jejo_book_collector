@@ -1,0 +1,6 @@
+.viewbook {
+    min-height: 100vh;
+    background-color: var(--primary-light);
+    padding-top: 2rem;
+    animation: viewbook-fadeIn 0.6s ease-out;
+}

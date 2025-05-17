@@ -1,0 +1,64 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+    .control-bar {
+        flex-direction: column;
+    }
+
+    .search-input-container {
+        width: 100%;
+    }
+
+    .book-item {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "checkbox info"
+            "category actions";
+        padding: 1rem;
+    }
+
+    .book-checkbox {
+        grid-area: checkbox;
+    }
+
+    .book-info {
+        grid-area: info;
+    }
+
+    .book-category {
+        grid-area: category;
+        justify-self: start;
+    }
+
+    .action-buttons {
+        grid-area: actions;
+        justify-self: end;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-item {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "checkbox"
+            "info"
+            "category"
+            "actions";
+        text-align: center;
+    }
+
+    .book-checkbox {
+        justify-self: center;
+    }
+
+    .book-category {
+        justify-self: center;
+    }
+
+    .action-buttons {
+        justify-content: center;
+    }
+
+    .page-title h1 {
+        font-size: 2rem;
+    }
+}

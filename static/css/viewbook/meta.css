@@ -1,0 +1,29 @@
+/* Meta Information */
+.viewbook__meta {
+    margin-bottom: 2rem;
+}
+
+.viewbook__meta-item {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.viewbook__meta-label {
+    font-weight: 600;
+    color: var(--text-dark);
+    opacity: 0.9;
+}
+
+/* Additional Meta */
+.viewbook__additional-meta {
+    margin-top: 3rem;
+    padding-top: 2rem;
+}
+
+.viewbook__divider {
+    border: none;
+    height: 1px;
+    background-color: var(--shadow-light);
+    margin-bottom: 1.5rem;
+}

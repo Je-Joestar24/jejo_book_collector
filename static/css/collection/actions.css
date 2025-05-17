@@ -1,0 +1,40 @@
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.view-btn,
+.remove-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.view-btn {
+    background-color: var(--secondary-green);
+    color: var(--text-dark);
+}
+
+.remove-btn {
+    background-color: var(--accent-warning);
+    color: var(--text-light);
+}
+
+.view-btn:hover,
+.remove-btn:hover {
+    transform: translateY(-2px);
+}
+
+.view-btn:hover {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+}
+
+.remove-btn:hover {
+    background-color: #ff6b6b;
+}

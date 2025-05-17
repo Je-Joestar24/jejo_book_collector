@@ -1,0 +1,21 @@
+/* Header Section */
+.viewbook__header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 8px var(--shadow-light);
+}
+
+.viewbook__container {
+    max-width: var(--container-lg);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.viewbook__hero {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    align-items: start;
+    transition: all 0.3s ease;
+}

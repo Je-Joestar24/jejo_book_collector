@@ -1,0 +1,6 @@
+/* Collection Page Styles */
+.collection-container {
+    max-width: var(--container-xl);
+    margin: 2rem auto;
+    padding: 0 1rem;
+}

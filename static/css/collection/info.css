@@ -1,0 +1,27 @@
+/* Book Info */
+.book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.book-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.book-author {
+    color: var(--text-dark);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.book-category {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--secondary-blue);
+    color: var(--text-dark);
+    border-radius: 15px;
+    font-size: 0.8rem;
+}

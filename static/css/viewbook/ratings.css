@@ -1,0 +1,25 @@
+/* Rating */
+.viewbook__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.viewbook__stars {
+    color: var(--accent-warning);
+    font-size: 1.25rem;
+}
+
+.viewbook__star {
+    transition: transform 0.2s ease;
+}
+
+.viewbook__star:hover {
+    transform: scale(1.2);
+}
+
+.viewbook__rating-text {
+    font-weight: 500;
+    color: var(--text-dark);
+}
