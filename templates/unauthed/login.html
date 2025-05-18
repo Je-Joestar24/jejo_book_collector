@@ -20,8 +20,15 @@
     <section class="login-form-section" role="region" aria-labelledby="login-title">
         <div class="form-container">
             <h2 id="login-title" class="form-title">Login to Your Library</h2>
-            <form class="login-form" method="POST" role="form">
-
+            {% if messages %}
+            <div class="error-message" role="alert">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <form class="login-form" method="POST"  action="{% url 'login' %}" role="form">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="username" class="form-label">Username or Email</label>
                     <div class="input-wrapper">

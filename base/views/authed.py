@@ -1,13 +1,16 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+@login_required
 def search_book_view(request):
     return render(request, 'authed/searchbook.html')
 
+@login_required
 def collection_view(request):
     return render(request, 'authed/collection.html')
 
+@login_required
 def book_view(request):
     # Mock book data - replace this with actual API call later
     mock_book = {

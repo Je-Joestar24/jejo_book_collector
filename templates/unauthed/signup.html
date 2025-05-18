@@ -21,7 +21,14 @@
         <div class="form-container">
             <h2 id="signup-title" class="form-title">Create Your Account</h2>
 
-            <form class="signup-form" method="POST" role="form">
+            {% if error %}
+            <div class="error-message" role="alert" aria-live="polite">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            <form class="signup-form" method="POST" action="{% url 'signup' %}" role="form">
+                {% csrf_token %}
 
                 <!-- Full Name Field -->
                 <div class="form-group">
