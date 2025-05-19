@@ -10,15 +10,18 @@
 
 {% block content %}
 <main class="search-container" role="main">
+    
     <!-- Control Bar Section -->
     <section class="control-bar" role="search" aria-label="Book search controls">
-        <form class="search-input-container">
+        <form class="search-input-container" id="searchForm">
             <input type="search" 
                    class="search-input" 
+                   name="q"
                    placeholder="Search by title or author..." 
                    aria-label="Search books"
-                   role="searchbox">
-            <button class="start-search" aria-label="Start search">Search</button>
+                   role="searchbox"
+                   value="{{ search_query }}">
+            <button type="submit" class="start-search" aria-label="Start search">Search</button>
         </form>
         
         <div class="filter-container" role="group" aria-label="Book category filters">
@@ -47,6 +50,6 @@
     </section>
 
     <!-- Books Grid Section -->
-     {% include 'authed/searchbook/cards.html' %}
+     {% include 'authed/searchbook/cards.html' with books=books only %}
 </main>
 {% endblock %}

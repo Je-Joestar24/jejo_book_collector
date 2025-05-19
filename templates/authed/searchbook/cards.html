@@ -1,20 +1,56 @@
+<!-- Books Grid Section -->
+
 <section class="books-grid" role="list" aria-label="Book search results">
-    <!-- Sample Book Card -->
+    {% if books %}
+    {% for book in books %}
     <article class="book-card" role="listitem">
-        <svg class="book-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="currentColor"
-                d="M18,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V4C20,2.9 19.1,2 18,2M18,20H6V4H8V12L10.5,9.75L13,12V4H18V20Z" />
-        </svg>
-        <h2 class="book-title">The Great Adventure</h2>
-        <p class="book-author">by John Smith</p>
-        <span class="book-category">Fiction</span>
+        <img src="{{ book.thumbnail }}" 
+                alt="Cover of {{ book.title }}" 
+                class="book-cover"
+                loading="lazy">
+        <h2 class="book-title">{{ book.title }}</h2>
+        
+        {% if book.authors %}
+        <p class="book-author">by {{ book.authors|join:", " }}</p>
+        {% else %}
+        <p class="book-author">by Unknown</p>
+        {% endif %}
+        
+        {% if book.categories %}
+        <span class="book-category">{{ book.categories.0 }}</span>
+        {% else %}
+        <span class="book-category book-category--unknown">Uncategorized</span>
+        {% endif %}
+        
+        {% if book.average_rating %}
+        <div class="book-rating" aria-label="Rating">
+            <span class="book-stars">
+                {% for i in "12345" %}
+                    {% if forloop.counter <= book.average_rating %}
+                        <span class="book-star book-star--filled">★</span>
+                    {% else %}
+                        <span class="book-star">☆</span>
+                    {% endif %}
+                {% endfor %}
+            </span>
+        </div>
+        {% endif %}
+        
         <div class="card-buttons">
-            <button class="save-btn" aria-label="Save book to collection">
+            <button class="save-btn" 
+                    data-book-id="{{ book.id }}"
+                    aria-label="Save book to collection">
                 🔖 Save
             </button>
-            <a href="{% url 'book_view' %}" class="view-btn" aria-label="View book details">
+            <a href="{% url 'book_view' %}?id={{ book.id }}" 
+                class="view-btn" 
+                aria-label="View book details">
                 👁️ View
             </a>
         </div>
     </article>
+    {% endfor %}
+    {% else %}
+    <p>No books found.</p>
+    {% endif %}
 </section>

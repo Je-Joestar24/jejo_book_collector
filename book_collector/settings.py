@@ -133,3 +133,5 @@ AUTH_USER_MODEL = 'base.User'
 
 LOGIN_URL = '/login/'   # URL where users will be redirected if not logged in
 LOGIN_REDIRECT_URL = '/search/book/'  # Where users go after login
+
+GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes"

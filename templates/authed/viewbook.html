@@ -20,6 +20,7 @@
             src="{{ book.cover_image }}" 
             alt="Cover of {{ book.title }}" 
             class="viewbook__cover"
+            loading="lazy"
           >
         </div>
         
@@ -27,16 +28,27 @@
         <div class="viewbook__details">
           <h1 id="book-title" class="viewbook__title">{{ book.title }}</h1>
           
+          {% if book.authors %}
           <p class="viewbook__author" aria-label="Author">
             <span class="viewbook__label">By</span>
             {{ book.authors|join:", " }}
           </p>
+          {% else %}
+          <p class="viewbook__author" aria-label="Author">
+            <span class="viewbook__label">Author:</span>
+            <span class="viewbook__unknown">Unknown</span>
+          </p>
+          {% endif %}
           
           {% if book.categories %}
           <div class="viewbook__categories" aria-label="Categories">
             {% for category in book.categories %}
               <span class="viewbook__category">{{ category }}</span>
             {% endfor %}
+          </div>
+          {% else %}
+          <div class="viewbook__categories" aria-label="Categories">
+            <span class="viewbook__category viewbook__category--unknown">Uncategorized</span>
           </div>
           {% endif %}
           
@@ -68,6 +80,10 @@
               </span>
               <span class="viewbook__rating-text">{{ book.average_rating }}/5</span>
             </div>
+            {% else %}
+            <div class="viewbook__rating" aria-label="Rating">
+              <span class="viewbook__rating-text">No ratings available</span>
+            </div>
             {% endif %}
           </div>
           
@@ -81,6 +97,15 @@
               aria-label="Preview {{ book.title }}"
             >
               Preview Book
+            </a>
+            <a 
+              href="{{ book.info_link }}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="viewbook__btn viewbook__btn--secondary"
+              aria-label="More information about {{ book.title }}"
+            >
+              More Info
             </a>
           </div>
           {% endif %}
@@ -98,9 +123,7 @@
         {% if book.description %}
           {{ book.description|safe }}
         {% else %}
-          <p>{{ internal_content_here }}</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>No description available for this book.</p>
         {% endif %}
       </div>
       
