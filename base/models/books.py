@@ -10,6 +10,7 @@ class Book(models.Model):
     info_link = models.URLField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    external_id = models.CharField(max_length=255, unique=True, null=True, blank=True)
 
     class Meta:
         db_table = 'books'
