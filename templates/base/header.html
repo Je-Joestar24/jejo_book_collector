@@ -26,8 +26,8 @@
       <a href="/login" class="header__btn header__btn--login" role="button" aria-label="Login">Login</a>
       <a href="/signup" class="header__btn header__btn--signup" role="button" aria-label="Sign Up">Sign Up</a>
       {% else %}
-      <a href="{% url 'history_view' %}" class="header__history-btn" aria-label="History" aria-expanded="false" aria-controls="history">
-        <svg class="header__history-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <a href="{% url 'recent_view' %}" class="header__recent-btn" aria-label="recent" aria-expanded="false" aria-controls="recent">
+        <svg class="header__recent-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="12 8 12 12 14 14" />  <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" /></svg>
         </svg>
       </a>

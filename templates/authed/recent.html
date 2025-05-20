@@ -1,0 +1,72 @@
+{% extends 'base/authed.html' %}
+
+{% block title %}Recent{% endblock %}
+
+{% block header_display %}
+
+{% include 'base/header.html' with authed=True active='recent' %}
+
+{% endblock %}
+
+{% block content %}
+<div class="recent-container" role="main" aria-label="Recently viewed books">
+    <h1 class="recent-title">Recently Viewed Books</h1>
+    
+    {% if recent_views %}
+    <div class="recent-books-grid">
+        {% for recent in recent_views %}
+        <article class="book-card" role="article" aria-label="Book: {{ recent.book.title }}">
+            <div class="book-image-container">
+                <img src="{{ recent.book.thumbnail }}" 
+                     alt="Cover of {{ recent.book.title }}"
+                     class="book-image"
+                     loading="lazy">
+            </div>
+            
+            <div class="book-info">
+                <h2 class="book-title">{{ recent.book.title }}</h2>
+                
+                <div class="book-meta">
+                    {% if recent.book.ratings %}
+                    <div class="book-rating" aria-label="Book rating: {{ recent.book.ratings }}">
+                        <span class="rating-value">{{ recent.book.ratings }}</span>
+                        <span class="rating-star">★</span>
+                    </div>
+                    {% else %}
+                    <div class="book-rating no-rating" aria-label="No rating available">
+                        <span>No rating</span>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="book-date">
+                        Viewed: {{ recent.viewed_at|date:"M d, Y" }}
+                    </div>
+                </div>
+                
+                <p class="book-description">
+                    {% if recent.book.description %}
+                        {{ recent.book.description|truncatechars:150 }}
+                    {% else %}
+                        <span class="no-description">No description available</span>
+                    {% endif %}
+                </p>
+                
+                <a href="{{ recent.book.info_link }}" 
+                   class="book-link" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="View more details about {{ recent.book.title }}">
+                    View Details
+                </a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="no-books" role="status" aria-label="No recently viewed books">
+        <p>You haven't viewed any books yet.</p>
+        <a href="{% url 'search' %}" class="browse-link">Browse Books</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

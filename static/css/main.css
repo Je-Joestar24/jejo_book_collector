@@ -8,6 +8,7 @@
 @import './collection/index.css';
 @import './viewbook/index.css';
 @import './profile/index.css';
+@import './recent/recent.css';
 
 :root {
   /* Primary Colors */

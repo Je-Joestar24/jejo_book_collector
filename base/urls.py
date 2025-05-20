@@ -10,7 +10,7 @@ urlpatterns = [
     path('search/book/', views.search_book_view, name='search_book_view'),
     path('collection/', views.collection_view, name='collection_view'),
     path('book/view/', views.view_book, name='book_view'),
-    path('history/', views.history_view, name='history_view'),
+    path('recent/', views.recent_view, name='recent_view'),
     path('profile/', views.profile_view, name='profile_view'),
     # AUTHS
     path('auth/signup/', views.signup_process, name='signup'),
