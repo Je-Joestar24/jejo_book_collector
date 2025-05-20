@@ -1,0 +1,44 @@
+.book-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-green);
+    color: var(--text-light);
+    border-radius: 6px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: auto;
+}
+
+.book-link:hover {
+    background: var(--secondary-green);
+    transform: translateY(-2px);
+}
+
+.no-books {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: var(--primary-light);
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.no-books p {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.browse-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-green);
+    color: var(--text-light);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.browse-link:hover {
+    background: var(--secondary-green);
+    transform: translateY(-2px);
+}

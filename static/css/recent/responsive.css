@@ -1,0 +1,24 @@
+@media (max-width: 768px) {
+    .recent-books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .recent-title {
+        font-size: 1.75rem;
+    }
+
+    .book-info {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .recent-books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recent-title {
+        font-size: 1.5rem;
+    }
+}

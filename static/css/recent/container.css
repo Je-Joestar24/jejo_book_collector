@@ -1,0 +1,5 @@
+.recent-container {
+    max-width: var(--container-lg);
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
