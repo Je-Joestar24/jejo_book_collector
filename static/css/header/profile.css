@@ -1,7 +1,6 @@
 /* Profile Dropdown Styles */
 .header__profile-dropdown {
     position: relative;
-    margin-left: 1rem;
 }
 
 .header__profile-btn {
@@ -9,7 +8,7 @@
     border: none;
     padding: 0.5rem;
     cursor: pointer;
-    color: var(--text-dark);
+    color: var(--text-light);
     border-radius: 50%;
     transition: background-color 0.2s, transform 0.2s;
 }
