@@ -37,8 +37,7 @@
         {% endif %}
         
         <div class="card-buttons">
-            <button class="save-btn" 
-                    data-book-id="{{ book.id }}"
+            <button class="save-btn" onclick='apiRequest("{% url "collect_book" %}", { method: "POST", body: { "book_id": {{ book.id }} } })'
                     aria-label="Save book to collection">
                 🔖 Save
             </button>

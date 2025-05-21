@@ -1,4 +1,4 @@
-from .utils import random, requests, Author, Category, transaction, Book, BookAuthor, BookCategory, api_url
+from .utils import random, requests, Author, Category, transaction, Book, BookAuthor, BookCategory, Collected, Q, api_url
 
 def get_random_books():
     # List of popular search terms to get random books
@@ -73,3 +73,47 @@ def save_book_to_db(book_data):
         BookCategory.objects.get_or_create(book=book, category=category)
     
     return book
+
+def get_collected_books_data(user, search_query=''):
+    """
+    Get collected books data for a user with optional search filtering.
+    
+    Args:
+        user: The user whose collection to fetch
+        search_query: Optional search query to filter books
+        
+    Returns:
+        list: List of dictionaries containing book data
+    """
+    # Base queryset for collected books
+    collected_books = Collected.objects.filter(user=user).select_related('book')
+    
+    if search_query:
+        # Search in book title, authors, and categories
+        collected_books = collected_books.filter(
+            Q(book__title__icontains=search_query) |
+            Q(book__bookauthor__author__name__icontains=search_query) |
+            Q(book__bookcategory__category__name__icontains=search_query)
+        ).distinct()
+    
+    # Order by most recently collected
+    collected_books = collected_books.order_by('-created_at')
+    
+    # Prepare book data
+    books_data = []
+    for collected in collected_books:
+        book = collected.book
+        authors = BookAuthor.objects.filter(book=book).select_related('author')
+        categories = BookCategory.objects.filter(book=book).select_related('category')
+        
+        books_data.append({
+            'id': book.id,
+            'title': book.title,
+            'authors': [author.author.name for author in authors],
+            'categories': [category.category.name for category in categories],
+            'thumbnail': book.thumbnail,
+            'info_link': book.info_link,
+            'collected_at': collected.created_at
+        })
+    
+    return books_data

@@ -1,44 +1,41 @@
 <!-- Books Collection List -->
 <section class="books-list" role="list" aria-label="Book collection">
-    <!-- Sample Book Item -->
-    <article class="book-item" role="listitem">
-        <input type="checkbox" class="book-checkbox" aria-label="Select book for bulk action">
-
+    {% for book in books %}
+    <article class="book-item" role="listitem" data-book-id="{{ book.id }}">
         <div class="book-info">
-            <h2 class="book-title">The Great Adventure</h2>
-            <p class="book-author">by John Smith</p>
+            <h2 class="book-title">{{ book.title }}</h2>
+            <p class="book-author">
+                {% if book.authors %}
+                    by {{ book.authors|join:", " }}
+                {% else %}
+                    No author available
+                {% endif %}
+            </p>
         </div>
 
-        <span class="book-category">Fiction</span>
+        <span class="book-category">
+            {% if book.categories %}
+                {{ book.categories|join:", " }}
+            {% else %}
+                No category available
+            {% endif %}
+        </span>
 
-        <div class="action-buttons">
-            <button class="view-btn" aria-label="View book details">
+        <form class="action-buttons" method="POST"  action="{% url 'remove_book' %}" role="form">
+            {% csrf_token %}
+            <a href="{% url 'book_view' %}?id={{ book.id }}" 
+               class="view-btn" 
+               rel="noopener noreferrer"
+               aria-label="View book details">
                 👁️ View
-            </button>
-            <button class="remove-btn" aria-label="Remove book from collection">
+            </a>
+            <input name='book_id' value="{{ book.id }}" hidden/>
+            <button class="remove-btn" 
+                    type="submit"
+                    aria-label="Remove book from collection">
                 ❌ Remove
             </button>
-        </div>
+        </form>
     </article>
-
-    <!-- Another Sample Book Item -->
-    <article class="book-item" role="listitem">
-        <input type="checkbox" class="book-checkbox" aria-label="Select book for bulk action">
-
-        <div class="book-info">
-            <h2 class="book-title">The Art of Programming</h2>
-            <p class="book-author">by Jane Doe</p>
-        </div>
-
-        <span class="book-category">Education</span>
-
-        <div class="action-buttons">
-            <button class="view-btn" aria-label="View book details">
-                👁️ View
-            </button>
-            <button class="remove-btn" aria-label="Remove book from collection">
-                ❌ Remove
-            </button>
-        </div>
-    </article>
+    {% endfor %}
 </section>

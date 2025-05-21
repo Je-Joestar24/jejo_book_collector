@@ -1,6 +1,4 @@
-from .utils import login_required, render
-from base.models.recent import Recent
-
+from .utils import login_required, render, Recent
 
 @login_required
 def recent_view(request):

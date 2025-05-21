@@ -9,6 +9,8 @@ urlpatterns = [
     path('signup/', views.signup_view, name='signup_view'),
     path('search/book/', views.search_book_view, name='search_book_view'),
     path('collection/', views.collection_view, name='collection_view'),
+    path('collection/collect/', views.collect_book, name='collect_book'),
+    path('collection/remove/', views.remove_book, name='remove_book'),
     path('book/view/', views.view_book, name='book_view'),
     path('recent/', views.recent_view, name='recent_view'),
     path('profile/', views.profile_view, name='profile_view'),
@@ -16,5 +18,7 @@ urlpatterns = [
     path('auth/signup/', views.signup_process, name='signup'),
     path('auth/login/', views.login_process, name='login'),
     path('auth/logout/', views.logout_process, name='logout'),
-    path('user/', views.users, name='user')
+    # DEBUG
+    path('user/', views.users, name='user'),
+    path('books/', views.books, name='books')
 ]

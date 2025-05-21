@@ -16,12 +16,14 @@
 
     <!-- Control Bar Section -->
     <section class="control-bar" role="search" aria-label="Collection search controls">
-        <form class="search-input-container">
-            <input type="search" 
+        <form class="search-input-container" method="GET" action="{% url 'collection_view' %}">
+            <input type="text" 
+                   name="search"
                    class="search-input" 
                    placeholder="Search your collection..." 
                    aria-label="Search collection"
-                   role="searchbox">
+                   role="searchbox"
+                   value="{{ search_query }}">
             <button type="submit" class="start-search" aria-label="Start search">Search</button>
         </form>
         
@@ -32,6 +34,13 @@
         </div>
     </section>
     
-     {% include 'authed/collection/list.html' %}
+    {% if books %}
+        {% include 'authed/collection/list.html' with books=books %}
+    {% else %}
+        <div class="no-books" role="status" aria-label="No books in collection">
+            <p>{% if search_query %}No books found matching your search.{% else %}Your collection is empty.{% endif %}</p>
+            <a href="{% url 'search_book_view' %}" class="browse-link">Browse Books</a>
+        </div>
+    {% endif %}
 </main>
 {% endblock %}
