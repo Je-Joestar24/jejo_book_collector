@@ -17,7 +17,10 @@
     <script type="module" src="{% static 'js/main.js' %}"></script>
   </head>
   <body>
-    
+    {% if status and message %}
+    <div class="app__message {{ status }}" style='display:none' id='app__message'>{{ message }}</div>
+    {% endif %}
+
     {% block header_display %}
 
     {% endblock %}

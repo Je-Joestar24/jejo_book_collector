@@ -13,12 +13,14 @@ def collection_view(request):
     
     return render(request, 'authed/collection.html', {
         'books': books_data,
-        'search_query': search_query
+        'search_query': search_query,
+        'status': 'info',
+        'message': 'COLLECTION PAGE'
     })
 
 @login_required
 def collect_book(request):
-    if request.method == 'POST':
+    if request.method == 'PUT':
         data = json.loads(request.body)
         book_id = data.get('book_id')
         
@@ -52,7 +54,9 @@ def remove_book(request):
                 books_data = get_collected_books_data(request.user)
                 return render(request, 'authed/collection.html', {
                     'books': books_data,
-                    'search_query': search_query
+                    'search_query': search_query,
+                    'status': 'success',
+                    'message': 'Success removing book'
                 })
                 
         except Book.DoesNotExist:
@@ -63,6 +67,8 @@ def remove_book(request):
     
     return render(request, 'authed/collection.html', {
         'books': books_data,
-        'search_query': search_query
+        'search_query': search_query,
+        'status': 'success',
+        'message': 'COLLECTION PAGE'
     })
     

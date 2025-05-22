@@ -57,7 +57,9 @@ def search_book_view(request):
             'books': books_data,
             'search_query': search_query,
             'category': category,
-            'sort_by': sort_by
+            'sort_by': sort_by,
+            'status': 'info',
+            'message': 'SEARCH BOOK PAGE'
         }
         
         return render(request, 'authed/searchbook.html', context)

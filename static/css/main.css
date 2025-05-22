@@ -9,6 +9,7 @@
 @import './viewbook/index.css';
 @import './profile/index.css';
 @import './recent/index.css';
+@import './message/index.css';
 
 :root {
   /* Primary Colors */

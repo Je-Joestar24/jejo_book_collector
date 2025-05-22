@@ -4,4 +4,7 @@ def signup_view(request):
     if request.user.is_authenticated:
         return redirect('search_book_view') 
 
-    return render(request, 'unauthed/signup.html')
+    return render(request, 'unauthed/signup.html', {
+        'status': 'info',
+        'message': 'Welcome to Jejo Book Collector'
+    })

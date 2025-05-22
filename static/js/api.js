@@ -1,3 +1,5 @@
+import { showAppMessage } from './notif.js';
+
 export async function apiRequest(url, { method = 'GET', body = null, headers = {} } = {}) {
   const config = {
     method: method.toUpperCase(),
@@ -20,7 +22,7 @@ export async function apiRequest(url, { method = 'GET', body = null, headers = {
     }
 
     const result = await response.json()
-    alert(result.message);
+    showAppMessage(result.message, result.status)
     
   } catch (error) {
     console.error('API Request Error:', error);

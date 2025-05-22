@@ -37,7 +37,9 @@ def view_book(request):
         Recent.objects.create(book=book, user=request.user)
         
         context = {
-            'book': book_data
+            'book': book_data,
+            'status': 'info',
+            'message': f'Viewing {book_data["title"]}'
         }
         
         return render(request, 'authed/viewbook.html', context)

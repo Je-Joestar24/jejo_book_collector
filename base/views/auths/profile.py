@@ -9,6 +9,8 @@ def profile_view(request):
         'username': user.username,
         'email': user.email,
         'id': user.id,
+        'status': 'info',
+        'message': 'PROFILE PAGE'
     }
 
     return render(request, 'authed/profile.html', context)
