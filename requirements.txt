@@ -1,0 +1,6 @@
+# Core Dependencies
+Django==5.0.2
+requests==2.31.0  # For Google Books API integration
+
+# Development Tools (Optional but recommended)
+django-debug-toolbar==4.3.0  # For debugging 
