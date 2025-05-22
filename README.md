@@ -99,6 +99,16 @@ The application will be available at `http://localhost:8000`
 - Book collection management
 - Recent views tracking
 
+### Preview
+
+![codechume1](https://github.com/user-attachments/assets/7c394c44-28ee-4197-9276-565e3d151b6d)
+
+![search book](https://github.com/user-attachments/assets/4b1689a9-f47c-4b04-b223-2aed3cb35971)
+
+![PREVIEW](https://github.com/user-attachments/assets/55dedca7-e363-4ab6-a9a2-499412448feb)
+
+**Walkthrough:** https://screenrec.com/share/qLir8BD2bY
+
 ## 🎨 Theme Colors
 
 The application uses a carefully selected color palette:
