@@ -4,15 +4,9 @@
         display: none;
     }
 
-    .header__hamburger {
+    .header__mobile-menu{
         display: flex;
-    }
-
-    .header__mobile-menu[hidden] {
-        display: none;
-    }
-
-    .header__mobile-menu:not([hidden]) {
-        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
 }

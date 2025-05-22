@@ -57,19 +57,15 @@
         </div>
       </div>
       {% endif %}
-      <button class="header__hamburger" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
-        <span class="header__hamburger-bar"></span>
-        <span class="header__hamburger-bar"></span>
-        <span class="header__hamburger-bar"></span>
-      </button>
     </div>
   </div>
   <div id="mobile-menu" class="header__mobile-menu" role="menu" aria-label="Mobile Navigation" hidden>
-    <a href="/" role="menuitem" aria-label="Home">Home</a>
-    <a href="/about" role="menuitem" aria-label="About">About</a>
-    <a href="/search" role="menuitem" aria-label="Search Books">Search Books</a>
-    <a href="/collection" role="menuitem" aria-label="Collection">Collection</a>
-    <a href="/login" class="header__btn--login" role="menuitem" aria-label="Login">Login</a>
-    <a href="/signup" class="header__btn--signup" role="menuitem" aria-label="Sign Up">Sign Up</a>
+    {% if not authed %}
+    <a href="{% url 'home_view' %}" role="menuitem" aria-label="Home">Home</a>
+    <a href="{% url 'about_view' %}" role="menuitem" aria-label="About">About</a>
+    {% else %}
+    <a href="{% url 'search_book_view' %}" role="menuitem" aria-label="Search Books">Search Books</a>
+    <a href="{% url 'collection_view' %}" role="menuitem" aria-label="Collection">Collection</a>
+    {% endif %}
   </div>
 </nav>

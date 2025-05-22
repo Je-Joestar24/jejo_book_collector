@@ -13,7 +13,7 @@ A modern web application for collecting and managing your favorite books. Built 
 
 1. Clone the repository:
 ```bash
-git clone https://Je-Joestar24/jejo_book_collector.git
+git clone https://github.com/Je-Joestar24/jejo_book_collector.git
 cd jejo_book_collector
 ```
 

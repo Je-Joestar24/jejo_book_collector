@@ -42,6 +42,7 @@
     visibility: hidden;
     transform: translateY(-10px);
     transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+    z-index: 10;
 }
 
 .header__profile-dropdown:hover .header__profile-menu,
