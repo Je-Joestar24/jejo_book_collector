@@ -1,8 +1,39 @@
+"""
+Search Book View Module
+
+This module handles book search functionality using the Google Books API.
+It provides features for searching, filtering, and sorting books.
+"""
+
 from .utils import login_required, requests, BookAuthor, BookCategory, render, api_url
 from .helpers import get_random_books, save_book_to_db
 
 @login_required
 def search_book_view(request):
+    """
+    Handle book search and display with filtering and sorting options.
+    
+    Args:
+        request (HttpRequest): The HTTP request object
+        
+    Returns:
+        HttpResponse: Renders search results page
+        
+    Features:
+        - Random book suggestions when no search query
+        - Category filtering
+        - Title sorting
+        - Author and category information
+        - Book details including ratings and links
+        
+    Context:
+        books: List of book data dictionaries
+        search_query: Current search query
+        category: Selected category filter
+        sort_by: Current sort option
+        status: Operation status
+        message: Status message
+    """
     if request.method == 'GET':
         search_query = request.GET.get('q', '')
         category = request.GET.get('category', '')

@@ -1,8 +1,35 @@
+"""
+View Book Module
+
+This module handles the detailed view of individual books.
+It provides comprehensive book information and tracks recent views.
+"""
+
 from .utils import login_required, render, Book, BookAuthor, BookCategory, Recent
 from .helpers import record_recent
 
 @login_required
 def view_book(request):
+    """
+    Display detailed information about a specific book.
+    
+    Args:
+        request (HttpRequest): The HTTP request object with book ID
+        
+    Returns:
+        HttpResponse: Renders book details page or error page
+        
+    Features:
+        - Comprehensive book information
+        - Author and category details
+        - Recent view tracking
+        - Error handling for invalid/missing books
+        
+    Context:
+        book: Dictionary containing book details
+        status: Operation status
+        message: Status message with book title
+    """
     book_id = request.GET.get('id')
     
     if not book_id:

@@ -1,6 +1,28 @@
+"""
+Book Views Helpers Module
+
+This module provides helper functions for book-related operations.
+These functions handle common tasks like book data retrieval,
+author/category management, and database operations.
+
+Functions:
+- get_random_books: Fetches random books from Google Books API
+- get_or_create_author: Manages author creation/retrieval
+- get_or_create_category: Manages category creation/retrieval
+- save_book_to_db: Saves book data with related authors and categories
+- get_collected_books_data: Retrieves user's collected books
+- record_recent: Tracks recently viewed books
+"""
+
 from .utils import random, requests, Author, Category, transaction, Book, BookAuthor, BookCategory, Collected, Q, api_url, Recent
 
 def get_random_books():
+    """
+    Fetches random books from Google Books API using predefined search terms.
+    
+    Returns:
+        list: List of book items from Google Books API
+    """
     # List of popular search terms to get random books
     search_terms = [
         "fiction", "science", "history", "philosophy", "technology",
@@ -20,7 +42,15 @@ def get_random_books():
     return response.json().get('items', [])
 
 def get_or_create_author(author_name):
-    """Get or create an author, handling duplicates"""
+    """
+    Get or create an author, handling duplicates.
+    
+    Args:
+        author_name (str): Name of the author
+        
+    Returns:
+        Author: Author model instance
+    """
     author, created = Author.objects.get_or_create(
         name=author_name.strip(),
         defaults={'name': author_name.strip()}
@@ -28,7 +58,15 @@ def get_or_create_author(author_name):
     return author
 
 def get_or_create_category(category_name):
-    """Get or create a category, handling duplicates"""
+    """
+    Get or create a category, handling duplicates.
+    
+    Args:
+        category_name (str): Name of the category
+        
+    Returns:
+        Category: Category model instance
+    """
     category, created = Category.objects.get_or_create(
         name=category_name.strip(),
         defaults={'name': category_name.strip()}
@@ -37,7 +75,16 @@ def get_or_create_category(category_name):
 
 @transaction.atomic
 def save_book_to_db(book_data):
-    """Save book data to database with authors and categories"""
+    """
+    Save book data to database with authors and categories.
+    Uses transaction to ensure data consistency.
+    
+    Args:
+        book_data (dict): Book data from Google Books API
+        
+    Returns:
+        Book: Saved book model instance
+    """
     # Extract book information
     volume_info = book_data.get('volumeInfo', {})
     book_id = book_data.get('id')
@@ -83,7 +130,7 @@ def get_collected_books_data(user, search_query=''):
         search_query: Optional search query to filter books
         
     Returns:
-        list: List of dictionaries containing book data
+        list: List of dictionaries containing book data with authors and categories
     """
     # Base queryset for collected books
     collected_books = Collected.objects.filter(user=user).select_related('book')
@@ -120,8 +167,12 @@ def get_collected_books_data(user, search_query=''):
 
 def record_recent(user, book):
     """
-    Internal helper: Records a recent book view for the user.
+    Records a recent book view for the user.
     Ensures only one entry per user-book pair by removing old duplicates.
+    
+    Args:
+        user: The user viewing the book
+        book: The book being viewed
     """
     if not user.is_authenticated:
         return  # Skip if user is anonymous

@@ -1,3 +1,13 @@
+"""
+Collection View Module
+
+This module handles the user's book collection functionality, including:
+- Viewing collected books
+- Adding books to collection
+- Removing books from collection
+- Pagination and search within collection
+"""
+
 from .utils import login_required, render, Collected, Book, json, JsonResponse, Paginator
 from .helpers import get_collected_books_data
 
@@ -5,6 +15,23 @@ search_query = ''
 
 @login_required
 def collection_view(request):
+    """
+    Display the user's book collection with pagination and search.
+    
+    Args:
+        request (HttpRequest): The HTTP request object
+        
+    Returns:
+        HttpResponse: Renders collection page with paginated books
+        
+    Context:
+        books: Paginated book data
+        search_query: Current search query
+        status: Operation status
+        message: Status message
+        paginator: Paginator object
+        page_obj: Current page object
+    """
     # Get search query if any
     search_query = request.GET.get('search', '')
     page_number = request.GET.get('page', 1)
@@ -13,7 +40,7 @@ def collection_view(request):
     books_data = get_collected_books_data(request.user, search_query)
     
     # Create paginator
-    paginator = Paginator(books_data, 4)  # Show 10 books per page
+    paginator = Paginator(books_data, 4)  # Show 4 books per page
     page_obj = paginator.get_page(page_number)
     
     return render(request, 'authed/collection.html', {
@@ -27,6 +54,18 @@ def collection_view(request):
 
 @login_required
 def collect_book(request):
+    """
+    Add a book to the user's collection.
+    
+    Args:
+        request (HttpRequest): The HTTP request object with book_id in body
+        
+    Returns:
+        JsonResponse: Status of the operation
+            - success: Book added
+            - info: Book already in collection
+            - error: Book not found or invalid request
+    """
     if request.method == 'PUT':
         data = json.loads(request.body)
         book_id = data.get('book_id')
@@ -48,6 +87,22 @@ def collect_book(request):
 
 @login_required
 def remove_book(request):
+    """
+    Remove a book from the user's collection and handle pagination.
+    
+    Args:
+        request (HttpRequest): The HTTP request object
+        
+    Returns:
+        HttpResponse: Renders updated collection page
+        JsonResponse: Error response if book not found
+        
+    Process:
+        1. Removes book from collection
+        2. Updates pagination
+        3. Handles empty page scenarios
+        4. Returns updated collection view
+    """
     # Get common parameters
     page_number = int(request.GET.get('page', request.POST.get('page', 1)))
     search_query = request.GET.get('search', request.POST.get('search', ''))
