@@ -1,7 +1,36 @@
+"""
+Signup View Module
+
+This module handles new user registration. It provides a secure
+signup process with validation for username, email, and password
+requirements.
+"""
+
 from .utils import redirect, render, User, login
 
 def signup_process(request):
+    """
+    Handle new user registration process.
     
+    Args:
+        request (HttpRequest): The HTTP request object containing POST data
+        
+    Returns:
+        HttpResponse: Redirects to search page on success,
+                     renders signup page with errors on failure
+        
+    Process:
+        1. Validates user input (username, email, password)
+        2. Checks for existing username/email
+        3. Creates new user account
+        4. Automatically logs in the new user
+        5. Redirects to search page
+        
+    Validation Rules:
+        - Passwords must match
+        - Email must be unique
+        - Username must be unique
+    """
     if request.user.is_authenticated:
         return redirect('search_book_view') 
 

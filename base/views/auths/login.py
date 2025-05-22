@@ -1,7 +1,31 @@
+"""
+Login View Module
+
+This module handles user authentication through both username and email.
+It provides a flexible login system that allows users to authenticate
+using either their username or email address.
+"""
+
 from .utils import render, redirect, User, authenticate, login, messages
 
 def login_process(request):
+    """
+    Handle user login process with support for both username and email authentication.
     
+    Args:
+        request (HttpRequest): The HTTP request object containing POST data
+        
+    Returns:
+        HttpResponse: Redirects to search page if authenticated,
+                     renders login page with error if authentication fails
+        
+    Process:
+        1. Checks if user is already authenticated
+        2. Attempts authentication with username
+        3. If username fails, attempts authentication with email
+        4. On success, redirects to next URL or search page
+        5. On failure, displays error message
+    """
     if request.user.is_authenticated:
         return redirect('search_book_view') 
 
