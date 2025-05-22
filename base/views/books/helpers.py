@@ -1,4 +1,4 @@
-from .utils import random, requests, Author, Category, transaction, Book, BookAuthor, BookCategory, Collected, Q, api_url
+from .utils import random, requests, Author, Category, transaction, Book, BookAuthor, BookCategory, Collected, Q, api_url, Recent
 
 def get_random_books():
     # List of popular search terms to get random books
@@ -117,3 +117,17 @@ def get_collected_books_data(user, search_query=''):
         })
     
     return books_data
+
+def record_recent(user, book):
+    """
+    Internal helper: Records a recent book view for the user.
+    Ensures only one entry per user-book pair by removing old duplicates.
+    """
+    if not user.is_authenticated:
+        return  # Skip if user is anonymous
+
+    # Remove old record (if any) for this user and book
+    Recent.objects.filter(user=user, book=book).delete()
+
+    # Insert new recent view
+    Recent.objects.create(user=user, book=book)

@@ -1,0 +1,95 @@
+<div class="recent-books-grid">
+    {% for recent in recent_views %}
+    <article class="book-card" role="article" aria-label="Book: {{ recent.book.title }}">
+        <div class="book-image-container">
+            <img src="{{ recent.book.thumbnail }}" 
+                    alt="Cover of {{ recent.book.title }}"
+                    class="book-image"
+                    loading="lazy">
+        </div>
+        
+        <div class="book-info">
+            <h2 class="book-title">{{ recent.book.title }}</h2>
+            
+            <div class="book-meta">
+                {% if recent.book.ratings %}
+                <div class="book-rating" aria-label="Book rating: {{ recent.book.ratings }}">
+                    <span class="rating-value">{{ recent.book.ratings }}</span>
+                    <span class="rating-star">★</span>
+                </div>
+                {% else %}
+                <div class="book-rating no-rating" aria-label="No rating available">
+                    <span>No rating</span>
+                </div>
+                {% endif %}
+                
+                <div class="book-date">
+                    Viewed: {{ recent.viewed_at|date:"M d, Y" }}
+                </div>
+            </div>
+            
+            <p class="book-description">
+                {% if recent.book.description %}
+                    {{ recent.book.description|truncatechars:150 }}
+                {% else %}
+                    <span class="no-description">No description available</span>
+                {% endif %}
+            </p>
+            
+            <a href="{{ recent.book.info_link }}" 
+                class="book-link" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="View more details about {{ recent.book.title }}">
+                View Details
+            </a>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+
+{% if page_obj.paginator.num_pages > 1 %}
+<nav class="pagination" role="navigation" aria-label="Pagination Navigation">
+    <ul class="pagination__list">
+        {% if page_obj.has_previous %}
+            <li class="pagination__item">
+                <a href="?page=1" 
+                   class="pagination__link" 
+                   aria-label="First page">
+                    1
+                </a>
+            </li>
+            <li class="pagination__item">
+                <a href="?page={{ page_obj.previous_page_number }}" 
+                   class="pagination__link" 
+                   aria-label="Previous page">
+                    Previous
+                </a>
+            </li>
+        {% endif %}
+
+        <li class="pagination__item">
+            <span class="pagination__link active" aria-current="page">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+        </li>
+
+        {% if page_obj.has_next %}
+            <li class="pagination__item">
+                <a href="?page={{ page_obj.next_page_number }}" 
+                   class="pagination__link" 
+                   aria-label="Next page">
+                    Next
+                </a>
+            </li>
+            <li class="pagination__item">
+                <a href="?page={{ page_obj.paginator.num_pages }}" 
+                   class="pagination__link" 
+                   aria-label="Last page">
+                    {{ page_obj.paginator.num_pages }}
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}

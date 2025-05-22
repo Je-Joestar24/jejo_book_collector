@@ -14,5 +14,6 @@ from base.models.recent import Recent
 from django.db.models import Q
 from base.models.collected import Collected
 from django.http import JsonResponse
+from django.core.paginator import Paginator
 
 api_url = settings.GOOGLE_BOOKS_API_URL

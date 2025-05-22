@@ -1,4 +1,5 @@
 from .utils import login_required, render, Book, BookAuthor, BookCategory, Recent
+from .helpers import record_recent
 
 @login_required
 def view_book(request):
@@ -34,7 +35,7 @@ def view_book(request):
         }
         
         # Record this view in recent views
-        Recent.objects.create(book=book, user=request.user)
+        record_recent(book=book, user=request.user)
         
         context = {
             'book': book_data,
