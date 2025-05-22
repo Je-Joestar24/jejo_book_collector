@@ -20,31 +20,50 @@
             <h1 class="profile-title">Profile</h1>
         </div>
 
-        <div class="profile-info">
+        <form method="POST" class="profile-info" role="form" aria-label="Profile Edit Form">
+            {% csrf_token %}
             <div class="info-group">
-                <label for="fullName" class="info-label">Full Name</label>
-                <div id="fullName" class="info-value" aria-label="User's full name">{{ fullname }}</div>
+                <label for="fullname" class="info-label">Full Name</label>
+                <input type="text" 
+                       id="fullname" 
+                       name="fullname" 
+                       value="{{ fullname }}" 
+                       class="info-value" 
+                       aria-label="User's full name"
+                       required>
             </div>
 
             <div class="info-group">
                 <label for="email" class="info-label">Email Address</label>
-                <div id="email" class="info-value" aria-label="User's email address">{{ email }}</div>
+                <input type="email" 
+                       id="email" 
+                       name="email" 
+                       value="{{ email }}" 
+                       class="info-value" 
+                       aria-label="User's email address"
+                       required>
             </div>
 
             <div class="info-group">
                 <label for="username" class="info-label">Username</label>
-                <div id="username" class="info-value" aria-label="User's username">{{ username }}</div>
+                <input type="text" 
+                       id="username" 
+                       name="username" 
+                       value="{{ username }}" 
+                       class="info-value" 
+                       aria-label="User's username"
+                       required>
             </div>
-        </div>
 
-        <div class="profile-actions">
-            <button class="btn-edit" aria-label="Edit Profile">
-                <svg class="edit-icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                </svg>
-                Edit Profile
-            </button>
-        </div>
+            <div class="profile-actions">
+                <button type="submit" class="btn-edit" aria-label="Save Profile">
+                    <svg class="edit-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                    </svg>
+                    Save Profile
+                </button>
+            </div>
+        </form>
     </div>
 </main>
 {% endblock %}
